@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+    <head>
+        <title>krist.li</title>
+        <script type="text/javascript">
+            function shorten(url) {
+                var m = url.match(/\/artikel\/(\d+):/);
+                if (m) {
+                    return parseInt(m[1]).toString(36);
+                } else {
+                    return false;
+                }
+            }
+        </script>
+    </head>
+    <body>
+         {% block content %}
+            <h1>Hov!</h1>
+            <p>Nogen har glemt at putte indhold på denne side.</p>
+         {% endblock %}
+    </body>
+</html>

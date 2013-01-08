@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>krist.li</h1>
+    <p>En URL-forkorter til artikler fra <a href="http://www.k.dk">Kristeligt Dagblad</a>.</p>
+    <h2>Forkort en URL</h2>
+    <form method="get" action="/" onsubmit="var shortened = shorten(this['url'].value); if (shortened) {
+    this['url'].value = 'http://krist.li/x' + shortened; } else { alert('Det ligner ikke en URL fra k.dk'); } return false;">
+        <input type="text" name="url" placeholder="http://www.k.dk/artikel/..." />
+        <input type="submit" value="Forkort URL" />
+    </form>
+        <h2>Status siden seneste genstart</h2>
+        <p>{{ stats|count }} besøgte artikler.</p>
+        {% if stats %}
+            <ol>
+                {% for article in stats %}
+                    <li>
+                        <a href="{{ article.url }}">{{ article.title }}</a>
+                        ({{ article.hits }})
+                    </li>    
+                {% endfor %}
+            </ol>
+        {% endif %}
+{% endblock %}
