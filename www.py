@@ -68,5 +68,5 @@ def xoops_base36_id(base36_id):
     return response
 
 if __name__ == '__main__':
-    app.debug = True
+    #app.debug = True
     app.run()
